@@ -12,6 +12,7 @@ import { InvalidAccessToken } from "./schema/invalidAccessToken.schema";
 import { InvalidAccessTokenEntity1723822674115 } from "./migrations/1723822674115-InvalidAccessTokenEntity";
 import { RefreshTokenEntityPrimarykey1723822828857 } from "./migrations/1723822828857-RefreshTokenEntity-primarykey";
 import { InvalidAccessTokenEntityPrimarykey1723822977766 } from "./migrations/1723822977766-InvalidAccessTokenEntity-primarykey";
+import { RefactorsUserId1724173961514 } from "./migrations/1724173961514-refactors-user-id";
 
 
 
@@ -32,6 +33,7 @@ export const AppDataSource = new DataSource({
 		InvalidAccessTokenEntity1723822674115,
 		RefreshTokenEntityPrimarykey1723822828857,
 		InvalidAccessTokenEntityPrimarykey1723822977766,
+		RefactorsUserId1724173961514,
 	],
 	subscribers: [],
 });

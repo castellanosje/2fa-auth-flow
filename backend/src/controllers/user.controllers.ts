@@ -29,7 +29,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
 		const { id } = req.params;
 
-        const updatedUser = await User.update({ id: parseInt(id) }, req.body);
+        const updatedUser = await User.update({ id: id }, req.body);
 		
 		if (updatedUser?.affected){
 

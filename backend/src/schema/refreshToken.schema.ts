@@ -12,7 +12,7 @@ export class RefreshToken extends BaseEntity {
 	id: number;
 
 	@Column()
-	userId: number;
+	userId: string;
 
 	@Column()
 	refreshToken: string;

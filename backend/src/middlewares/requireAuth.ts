@@ -1,10 +1,11 @@
 // based on https://www.youtube.com/watch?v=eQ4fBSUI-vw
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { SECRET } from "../authConfig";
 import { JwtPayload } from "jsonwebtoken";
 import { InvalidAccessToken } from "../schema/invalidAccessToken.schema";
+import dotenv from "dotenv";
 
+dotenv.config();
 interface ExtendedJwtPayload extends JwtPayload {
 	userId: string;
 }
@@ -28,7 +29,7 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const decodedAccessToken = jwt.verify(
 			accessToken,
-			SECRET
+			process.env.ACCESS_TOKEN_SECRET!
 		) as ExtendedJwtPayload;
 
 		// for token invalidation in logout function
@@ -36,7 +37,7 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 
 		// TODO: implement an uuid strategy for user id
 		req.user = {
-			id: parseInt(decodedAccessToken.userId),
+			id: decodedAccessToken.userId,
 		};
 
 		// console.log(req.user);

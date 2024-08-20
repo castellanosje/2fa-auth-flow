@@ -6,7 +6,7 @@ export class InvalidAccessToken extends BaseEntity {
 	id: number;
 
 	@Column()
-	userId: number;
+	userId: string;
 
 	@Column()
 	accessToken: string;
