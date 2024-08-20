@@ -1,0 +1,43 @@
+### REGISTER
+POST http://localhost:3000/api/auth/register
+content-type: application/json
+
+{
+    "firstName":"Jhon",
+    "lastName":"Doe",
+    "userName":"JhonDoe",
+    "password":"123456",
+    "email":"jd@gmail.com"
+}
+
+
+### LOGIN
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "userName":"JhonDoe",
+    "password":"123456"
+}
+
+
+### REFRESH TOKEN replace <refreshToken> with actual refreshToken from login or refresh token routes response
+POST http://localhost:3000/api/auth/refresh-token
+content-type: application/json
+
+{
+    "refreshToken":"<refreshToken>"
+}
+
+
+### LOGOUT replace <token> with valid token from login or refresh token routes response
+GET http://localhost:3000/api/auth/logout
+content-type: application/json
+Authorization: Bearer <token>
+
+
+### LIST USERS (PROTECTED) replace <token> with actual token from login
+GET http://localhost:3000/api/users
+content-type: application/json
+Authorization: Bearer <token>
+
