@@ -3,11 +3,11 @@ POST http://localhost:3000/api/auth/register
 content-type: application/json
 
 {
-    "firstName":"Jhon",
-    "lastName":"Doe",
-    "userName":"JhonDoe",
-    "password":"123456",
-    "email":"jd@gmail.com"
+    "firstName":"Diana",
+    "lastName":"Ordoñez",
+    "userName":"nana",
+    "password":"qwerty",
+    "email":"nana@gmail.com"
 }
 
 
@@ -16,8 +16,8 @@ POST http://localhost:3000/api/auth/login
 content-type: application/json
 
 {
-    "userName":"JhonDoe",
-    "password":"123456"
+    "userName":"je34429",
+    "password":"qwerty"
 }
 
 
@@ -29,6 +29,28 @@ content-type: application/json
     "refreshToken":"<refreshToken>"
 }
 
+### REQUEST QR from 2FA
+GET http://localhost:3000/api/auth/2fa/generate
+content-type: application/json
+Authorization: Bearer <Token>
+
+### VALIDATE 2FA
+POST http://localhost:3000/api/auth/2fa/validate
+content-type: application/json
+Authorization: Bearer <Token>
+
+{
+    "totp":"<totp>"
+}
+
+### LOGIN 2FA
+POST http://localhost:3000/api/auth/2fa/login
+content-type: application/json
+
+{
+    "tempToken":"<temp-token>",
+    "totp":"<totp>"
+}
 
 ### LOGOUT replace <token> with valid token from login or refresh token routes response
 GET http://localhost:3000/api/auth/logout

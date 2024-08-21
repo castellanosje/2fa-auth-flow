@@ -15,11 +15,18 @@ export class User extends BaseEntity {
 	@Column({
 		unique: true,
 	})
-	
 	userName: string;
 
 	@Column()
 	password: string;
+
+	@Column()
+	twoFaEnabled:boolean;
+
+	@Column({
+		nullable:true
+	})
+	twoFaSecret: string
 
 	@Column()
 	firstName: string;

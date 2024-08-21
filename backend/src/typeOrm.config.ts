@@ -6,13 +6,8 @@ dotenv.config();
 import { DataSource } from "typeorm";
 import { User } from "./schema/user.schema";
 import { RefreshToken } from "./schema/refreshToken.schema";
-import { EmailFieldUser1723665499239 } from "./migrations/1723665499239-EmailFieldUser";
-import { RefreshTokenEntity1723746507490 } from "./migrations/1723746507490-RefreshTokenEntity";
 import { InvalidAccessToken } from "./schema/invalidAccessToken.schema";
-import { InvalidAccessTokenEntity1723822674115 } from "./migrations/1723822674115-InvalidAccessTokenEntity";
-import { RefreshTokenEntityPrimarykey1723822828857 } from "./migrations/1723822828857-RefreshTokenEntity-primarykey";
-import { InvalidAccessTokenEntityPrimarykey1723822977766 } from "./migrations/1723822977766-InvalidAccessTokenEntity-primarykey";
-import { RefactorsUserId1724173961514 } from "./migrations/1724173961514-refactors-user-id";
+import { User2fa1724182401571 } from "./migrations/1724182401571-user2fa";
 
 
 
@@ -27,13 +22,6 @@ export const AppDataSource = new DataSource({
 	synchronize: false,
 	logging: true,
 	entities: [User, RefreshToken, InvalidAccessToken],
-	migrations: [
-		EmailFieldUser1723665499239,
-		RefreshTokenEntity1723746507490,
-		InvalidAccessTokenEntity1723822674115,
-		RefreshTokenEntityPrimarykey1723822828857,
-		InvalidAccessTokenEntityPrimarykey1723822977766,
-		RefactorsUserId1724173961514,
-	],
+	migrations: [User2fa1724182401571],
 	subscribers: [],
 });

@@ -4,8 +4,6 @@ import { User } from "../schema/user.schema";
 
 export const getUsers = async (req: Request, res: Response) => {
 	
-	console.log('user id->', req?.user?.id);
-
 	try {
 
 		const users = await User.find();

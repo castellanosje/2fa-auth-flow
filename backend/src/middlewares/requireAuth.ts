@@ -13,8 +13,6 @@ interface ExtendedJwtPayload extends JwtPayload {
 const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 	const accessToken = req.headers.authorization?.split(" ")[1];
 
-	// console.log(acessToken);
-
 	if (!accessToken) {
 		return res.status(401).json({ message: "Access denied" });
 	}
@@ -35,12 +33,9 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 		// for token invalidation in logout function
 		req.accessToken = { value: accessToken, exp: decodedAccessToken.exp };
 
-		// TODO: implement an uuid strategy for user id
 		req.user = {
 			id: decodedAccessToken.userId,
 		};
-
-		// console.log(req.user);
 
 		return next();
 	} catch (error) {
